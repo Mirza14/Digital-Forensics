@@ -1,0 +1,57 @@
+**Workflow Overview and Case Analysis:**
+Before diving into Autopsy and analysing data, there are a few steps to perform; such as identifying the data source and what Autopsy actions to perform with the data source. 
+
+_Basic workflow:_
+
+Create/open the case for the data source you will investigate
+Select the data source you wish to analyse
+Configure the ingest modules to extract specific artefacts from the data source
+Review the artefacts extracted by the ingest modules
+Create the report
+
+**Case Analysis:**
+To prepare a new case investigation, you need to create a case file from the data source. When you start Autopsy, there will be three options. You can create a new case file using the "New Case" option. Once you click on the "New Case" option, the Case Information menu opens, where information about the case is populated.
+
+_Case Name:_ The name you wish to give to the case
+_Base Directory:_ The root directory that will store all the files specific to the case (the full path will be displayed)
+_Case Type:_ Specify whether this case will be local (Single-user) or hosted on a server where multiple analysts can review (Multi-user)
+
+**Case Analysis | Open an Existing Case:**
+
+The Autopsy can also open prebuilt case files.
+
+_Note:_ Autopsy case files have a ".aut" file extension.
+
+**Data Sources:**
+
+Autopsy can analyse multiple disk image formats. Before diving into the data analysis step, let's briefly cover the different data sources Autopsy can analyse. You can add data sources by using the "Add Data Source" button.
+
+_Supported Disk Image Formats:_
+
+Raw Single (For example: *.img, *.dd, *.raw, *.bin)
+Raw Split (For example: *.001, *.002, *.aa, *.ab, etc)
+EnCase (For example: *.e01, *.e02, etc)
+Virtual Machines (For example: *.vmdk, *.vhd)
+If there are multiple image files (e.i. E01, E02, E03, etc.) Autopsy only needs you to point to the first image file, and Autopsy will handle the rest.  
+
+_Note:_ Refer to the Autopsy [documentation](http://sleuthkit.org/autopsy/docs/user-docs/4.12.0/ds_page.html) to understand the other data sources that can be added to a case.
+
+**Ingest Modules:**
+
+Essentially Ingest Modules are Autopsy plug-ins. Each Ingest Module is designed to analyse and retrieve specific data from the drive. You can configure Autopsy to run specific modules during the source-adding stage or later by choosing the target data source available on the dashboard. By default, the Ingest Modules are configured to run on All Files, Directories, and Unallocated Space. 
+
+_Note:_ Autopsy adds metadata about files to the local database, not the actual file contents. 
+
+Using ingest modules after adding data sources:
+
+Open the "Run Ingest Modules" menu by right-clicking on the data source.
+Choose the modules to implement and click on the finish button.
+Track the progress of implementation.
+
+The results of any Ingest Module you select to run against a data source will populate the Results node in the Tree view, which is the left pane of the Autopsy user interface. 
+
+Note that the results depend on the dataset. If you choose a module to retrieve specific data that is unavailable in the drive, there will be no results.
+
+Drawing the attention back to the Configure Ingest Modules window, notice that some Ingest Modules have per-run settings and some do not. For example, the Keyword Search Ingest Module does not have per-run settings. In contrast, the Interesting Files Finder Ingest Module does. The yellow triangle represents the "per-run settings option".
+
+As Ingest Modules run, alerts may appear in the Ingest Inbox.
